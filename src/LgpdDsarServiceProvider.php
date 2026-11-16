@@ -2,17 +2,17 @@
 
 namespace JeffersonGoncalves\Filament\LgpdDsar;
 
+use JeffersonGoncalves\FilamentPluginCore\BasePackageServiceProvider;
 use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class LgpdDsarServiceProvider extends PackageServiceProvider
+class LgpdDsarServiceProvider extends BasePackageServiceProvider
 {
+    public static string $name = 'filament-lgpd-dsar';
+
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('filament-lgpd-dsar')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigrations();
+            ->name(static::$name)
+            ->hasTranslations();
     }
 }
