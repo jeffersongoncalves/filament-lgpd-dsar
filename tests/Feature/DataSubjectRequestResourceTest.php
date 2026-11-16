@@ -126,6 +126,16 @@ it('completes manual rights with a response and rejects with a reason', function
         ->assertActionHidden('reject');
 });
 
+it('offers the same actions on the table rows', function () {
+    $request = LgpdDsar::open(RequestType::Access);
+
+    Livewire::test(ListDataSubjectRequests::class)
+        ->assertTableActionHidden('fulfil', $request)
+        ->callTableAction('reject', $request, ['reason' => 'Duplicate.']);
+
+    expect($request->fresh()->status)->toBe(RequestStatus::Rejected);
+});
+
 it('registers the resource with the fluent plugin options', function () {
     $plugin = LgpdDsarPlugin::get()->navigationGroup('LGPD')->slug('dsar')->subjectModels([TestUser::class]);
 
