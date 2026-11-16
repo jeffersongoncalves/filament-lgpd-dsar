@@ -2,6 +2,7 @@
     "name": "jeffersongoncalves/filament-lgpd-dsar",
     "description": "Filament plugin to handle LGPD data subject requests (art. 18): verify, export, erase, reject and track the 15-day deadline from your panel.",
     "keywords": [
+        "jeffersongoncalves",
         "laravel",
         "filament",
         "filament-plugin",
@@ -14,7 +15,6 @@
     ],
     "homepage": "https://github.com/jeffersongoncalves/filament-lgpd-dsar",
     "license": "MIT",
-    "type": "library",
     "authors": [
         {
             "name": "Jefferson Gonçalves",
@@ -24,37 +24,39 @@
     ],
     "require": {
         "php": "^8.2",
-        "filament/filament": "^4.0",
-        "spatie/laravel-package-tools": "^1.16",
+        "filament/filament": "^4.8",
+        "jeffersongoncalves/filament-plugin-core": "^2.0",
         "jeffersongoncalves/laravel-lgpd-dsar": "^1.0",
-        "jeffersongoncalves/filament-plugin-core": "^1.0"
+        "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
-        "orchestra/testbench": "^9.0|^10.0",
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^10.0|^11.0",
         "pestphp/pest": "^3.0|^4.0",
-        "larastan/larastan": "^2.0|^3.0",
-        "laravel/pint": "^1.0"
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
     },
     "autoload": {
         "psr-4": {
-            "JeffersonGoncalves\\Filament\\LgpdDsar\\": "src/"
+            "JeffersonGoncalves\\Filament\\LgpdDsar\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "JeffersonGoncalves\\Filament\\LgpdDsar\\Tests\\": "tests/"
+            "JeffersonGoncalves\\Filament\\LgpdDsar\\Tests\\": "tests"
         }
     },
     "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
-        "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint",
-        "analyse": "vendor/bin/phpstan analyse"
+        "format": "vendor/bin/pint"
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
         }
     },
     "extra": {
