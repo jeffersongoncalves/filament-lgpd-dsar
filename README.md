@@ -21,7 +21,7 @@ A Filament panel for the data subject requests of the Brazilian General Data Pro
 - **Fulfil** access and portability (JSON export, downloadable from the request) and anonymization and deletion (erases the subject's records).
 - **Complete** the rights answered by hand (confirmation, correction, sharing information...) with the response you gave, or **reject** with a reason.
 - Overdue requests in red, an "Overdue" filter, and a navigation badge with open requests (red when one is overdue).
-- English and Brazilian Portuguese.
+- 19 languages.
 
 ## Compatibility
 
